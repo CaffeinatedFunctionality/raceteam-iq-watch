@@ -15,6 +15,7 @@ on:
 env:
   ANDROID_SDK_ROOT: ${{ github.workspace }}/android-sdk
   ANDROID_HOME: ${{ github.workspace }}/android-sdk
+  GRADLE_USER_HOME: ${{ github.workspace }}/.gradle
   PACKAGE_NAME: com.raceteamiq.watch
   PROJECT_DIR: android
 
@@ -47,11 +48,11 @@ jobs:
       - name: Generate Gradle wrapper (watch app)
         run: |
           cd ${{ env.PROJECT_DIR }}
-          curl -sL "https://services.gradle.org/distributions/gradle-8.9-bin.zip" -o /tmp/gradle.zip
-          unzip -q /tmp/gradle.zip -d /tmp
-          /tmp/gradle-8.9/bin/gradle wrapper --gradle-version 8.9
+          curl -sL "https://services.gradle.org/distributions/gradle-8.9-bin.zip" -o "${{ github.workspace }}/gradle-8.9.zip"
+          unzip -q "${{ github.workspace }}/gradle-8.9.zip" -d "${{ github.workspace }}"
+          "${{ github.workspace }}/gradle-8.9/bin/gradle" wrapper --gradle-version 8.9
           chmod +x ./gradlew
-          rm -rf /tmp/gradle-8.9 /tmp/gradle.zip
+          rm -rf "${{ github.workspace }}/gradle-8.9" "${{ github.workspace }}/gradle-8.9.zip"
 
       # On PRs: build debug only and upload artifact
       - name: Build Android watch (debug APK)
