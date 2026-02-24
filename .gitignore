@@ -1,0 +1,44 @@
+# OS and editors
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Android (Gradle, build outputs, IDE)
+android/.gradle/
+android/build/
+android/local.properties
+android/*.iml
+android/.idea/
+android/captures/
+android/.externalNativeBuild/
+android/.cxx/
+android/keystore.properties
+android/release.keystore
+# Built artifacts
+android/app/build/
+*.apk
+*.aar
+*.aab
+
+# iOS / Xcode (if present)
+ios/DerivedData/
+ios/**/xcuserdata/
+ios/**/*.xcuserstate
+ios/**/*.xcworkspace/xcuserdata/
+*.moved-aside
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+*.hmap
+*.xccheckout
+
+# Logs
+*.log
+npm-debug.log*
