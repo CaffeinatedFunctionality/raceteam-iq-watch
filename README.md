@@ -36,7 +36,7 @@ The Wear OS app is built and deployed by CI as a **separate app** on Google Play
 
 ### Pipeline
 
-- **Workflow:** `mobile/.github/workflows/build-android-watch.yml`
+- **Workflow:** `.github/workflows/build-android.yml` (in this repo)
 - **Triggers:** Push or PR to `qa` / `master`.
 - **On PR:** Builds a debug APK and uploads it as an artifact (no store upload).
 - **On push to `qa`:** Builds a signed release AAB and uploads to the **internal** testing track (draft).
