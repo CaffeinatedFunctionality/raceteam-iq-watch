@@ -3,6 +3,7 @@ import java.util.Properties
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("org.jetbrains.kotlin.plugin.compose")
 }
 
 val keystorePropertiesFile = rootProject.file("keystore.properties")
@@ -26,16 +27,14 @@ android {
         viewBinding = true
         compose = true
     }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.14"
-    }
     signingConfigs {
         if (keystoreProperties != null) {
+            val p = keystoreProperties
             create("release") {
-                storeFile = rootProject.file(keystoreProperties!!["storeFile"]!!)
-                storePassword = keystoreProperties!!["storePassword"] as String
-                keyAlias = keystoreProperties!!["keyAlias"] as String
-                keyPassword = keystoreProperties!!["keyPassword"] as String
+                storeFile = rootProject.file(p["storeFile"] as String)
+                storePassword = p["storePassword"] as String
+                keyAlias = p["keyAlias"] as String
+                keyPassword = p["keyPassword"] as String
             }
         }
     }
