@@ -15,6 +15,10 @@ val keystoreProperties = if (hasReleaseSigning) {
 android {
     namespace = "com.raceteamiq.watch"
     compileSdk = 35
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
     defaultConfig {
         applicationId = "com.raceteamiq.watch"
         minSdk = 30
@@ -50,6 +54,10 @@ android {
             }
         }
     }
+}
+
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+    kotlinOptions { jvmTarget = "17" }
 }
 
 dependencies {
