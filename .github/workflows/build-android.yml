@@ -48,13 +48,12 @@ jobs:
       - name: Generate Gradle wrapper (watch app)
         run: |
           cd ${{ env.PROJECT_DIR }}
-          curl -sL "https://services.gradle.org/distributions/gradle-8.9-bin.zip" -o "${{ github.workspace }}/gradle-8.9.zip"
-          unzip -q "${{ github.workspace }}/gradle-8.9.zip" -d "${{ github.workspace }}"
-          "${{ github.workspace }}/gradle-8.9/bin/gradle" wrapper --gradle-version 8.9
-          # Force HTTPS URL (gradle wrapper can write file:// when run from local install)
-          sed -i 's|distributionUrl=.*|distributionUrl=https\\://services.gradle.org/distributions/gradle-8.9-bin.zip|' gradle/wrapper/gradle-wrapper.properties
+          curl -sL "https://services.gradle.org/distributions/gradle-8.14.4-bin.zip" -o "${{ github.workspace }}/gradle-8.14.4.zip"
+          unzip -q "${{ github.workspace }}/gradle-8.14.4.zip" -d "${{ github.workspace }}"
+          "${{ github.workspace }}/gradle-8.14.4/bin/gradle" wrapper --gradle-version 8.14.4
+          sed -i 's|distributionUrl=.*|distributionUrl=https\\://services.gradle.org/distributions/gradle-8.14.4-bin.zip|' gradle/wrapper/gradle-wrapper.properties
           chmod +x ./gradlew
-          rm -rf "${{ github.workspace }}/gradle-8.9" "${{ github.workspace }}/gradle-8.9.zip"
+          rm -rf "${{ github.workspace }}/gradle-8.14.4" "${{ github.workspace }}/gradle-8.14.4.zip"
 
       # On PRs: build debug only and upload artifact
       - name: Build Android watch (debug APK)
