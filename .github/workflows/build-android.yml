@@ -42,7 +42,7 @@ jobs:
           mkdir -p $ANDROID_SDK_ROOT/cmdline-tools
           mv $ANDROID_SDK_ROOT/cmdline-tools-latest $ANDROID_SDK_ROOT/cmdline-tools/latest
           SDKMANAGER=$ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager
-          echo "y" | $SDKMANAGER --sdk_root=$ANDROID_SDK_ROOT "platform-tools" "platforms;android-34" "build-tools;34.0.0"
+          echo "y" | $SDKMANAGER --sdk_root=$ANDROID_SDK_ROOT "platform-tools" "platforms;android-34" "platforms;android-35" "build-tools;34.0.0" "build-tools;35.0.0"
           echo "y" | $SDKMANAGER --sdk_root=$ANDROID_SDK_ROOT --licenses || true
 
       - name: Generate Gradle wrapper (watch app)

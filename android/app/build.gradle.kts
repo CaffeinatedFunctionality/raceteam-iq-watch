@@ -14,11 +14,11 @@ val keystoreProperties = if (hasReleaseSigning) {
 
 android {
     namespace = "com.raceteamiq.watch"
-    compileSdk = 34
+    compileSdk = 35
     defaultConfig {
         applicationId = "com.raceteamiq.watch"
         minSdk = 30
-        targetSdk = 34
+        targetSdk = 35
         // CI sets VERSION_CODE / VERSION_NAME; local builds use defaults
         versionCode = (System.getenv("VERSION_CODE") ?: "1").toIntOrNull() ?: 1
         versionName = System.getenv("VERSION_NAME") ?: "1.0"
