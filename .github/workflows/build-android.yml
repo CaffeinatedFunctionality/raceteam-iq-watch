@@ -53,7 +53,7 @@ jobs:
           "${{ github.workspace }}/gradle-8.14.4/bin/gradle" wrapper --gradle-version 8.14.4
           sed -i 's|distributionUrl=.*|distributionUrl=https\\://services.gradle.org/distributions/gradle-8.14.4-bin.zip|' gradle/wrapper/gradle-wrapper.properties
           chmod +x ./gradlew
-          rm -rf "${{ github.workspace }}/gradle-8.14.4" "${{ github.workspace }}/gradle-8.14.4.zip"
+          # Do not delete gradle-8.14.4: the generated wrapper may resolve the distribution from this path during the build
 
       # On PRs: build debug only and upload artifact
       - name: Build Android watch (debug APK)
